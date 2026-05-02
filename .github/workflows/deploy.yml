@@ -1,0 +1,150 @@
+name: Controlled Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Deploy mode"
+        required: true
+        default: "CleanHistoryPublish"
+        type: choice
+        options:
+          - StandardPublish
+          - CleanHistoryPublish
+          - ListBackupBranches
+          - DeleteBackupBranches
+      branch:
+        description: "Target branch"
+        required: true
+        default: "main"
+        type: string
+      delete_remote_backups:
+        description: "Delete remote backup branches"
+        required: false
+        default: false
+        type: boolean
+      delete_local_backups:
+        description: "Delete local backup branches"
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+concurrency:
+  group: controlled-deploy-${{ github.repository }}
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: windows-latest
+    timeout-minutes: 20
+
+    defaults:
+      run:
+        shell: pwsh
+
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Configure git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Validate deploy scripts exist
+        run: |
+          if (-not (Test-Path ".\deploy_std.ps1")) {
+            throw "Missing deploy_std.ps1"
+          }
+
+          if (-not (Test-Path ".\deploy_clean.ps1")) {
+            throw "Missing deploy_clean.ps1"
+          }
+
+      - name: Run controlled deploy
+        run: |
+          $mode = "${{ inputs.mode }}"
+          $branch = "${{ inputs.branch }}"
+          $remoteUrl = "https://github.com/${{ github.repository }}.git"
+
+          Write-Host "Mode: $mode"
+          Write-Host "Branch: $branch"
+          Write-Host "Remote: $remoteUrl"
+
+          if ($mode -eq "StandardPublish") {
+            Write-Host "Executing deploy_std.ps1"
+            .\deploy_std.ps1 `
+              -Branch $branch `
+              -CI `
+              -Push `
+              -AutoSetRemoteUrl $remoteUrl
+          }
+          elseif ($mode -eq "CleanHistoryPublish") {
+            Write-Host "Executing deploy_clean.ps1"
+            .\deploy_clean.ps1 `
+              -Mode CleanHistoryPublish `
+              -Branch $branch `
+              -CI `
+              -Push `
+              -NoBackup `
+              -AutoSetRemoteUrl $remoteUrl
+          }
+          elseif ($mode -eq "ListBackupBranches") {
+            Write-Host "Executing deploy_clean.ps1 in ListBackupBranches mode"
+            .\deploy_clean.ps1 `
+              -Mode ListBackupBranches `
+              -Branch $branch `
+              -CI `
+              -AutoSetRemoteUrl $remoteUrl
+          }
+          elseif ($mode -eq "DeleteBackupBranches") {
+            Write-Host "Executing deploy_clean.ps1 in DeleteBackupBranches mode"
+
+            $deleteRemote = "${{ inputs.delete_remote_backups }}" -eq "true"
+            $deleteLocal = "${{ inputs.delete_local_backups }}" -eq "true"
+
+            if (-not $deleteRemote -and -not $deleteLocal) {
+              throw "DeleteBackupBranches requires at least one of delete_remote_backups or delete_local_backups to be true."
+            }
+
+            if ($deleteRemote -and $deleteLocal) {
+              .\deploy_clean.ps1 `
+                -Mode DeleteBackupBranches `
+                -Branch $branch `
+                -CI `
+                -DeleteRemoteBackups `
+                -DeleteLocalBackups `
+                -PruneAfterDelete `
+                -AutoSetRemoteUrl $remoteUrl
+            }
+            elseif ($deleteRemote) {
+              .\deploy_clean.ps1 `
+                -Mode DeleteBackupBranches `
+                -Branch $branch `
+                -CI `
+                -DeleteRemoteBackups `
+                -PruneAfterDelete `
+                -AutoSetRemoteUrl $remoteUrl
+            }
+            elseif ($deleteLocal) {
+              .\deploy_clean.ps1 `
+                -Mode DeleteBackupBranches `
+                -Branch $branch `
+                -CI `
+                -DeleteLocalBackups `
+                -PruneAfterDelete `
+                -AutoSetRemoteUrl $remoteUrl
+            }
+          }
+          else {
+            throw "Unsupported mode: $mode"
+          }

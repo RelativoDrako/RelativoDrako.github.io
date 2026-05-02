@@ -1,0 +1,13 @@
+# Landing core
+/index.html @RelativoDrako
+/assets/css/** @RelativoDrako
+/assets/js/** @RelativoDrako
+/assets/img/** @RelativoDrako
+
+# Docs and metadata
+/README.md @RelativoDrako
+/docs/** @RelativoDrako
+
+# Workflow governance
+/.github/workflows/** @RelativoDrako
+/.github/CODEOWNERS @RelativoDrako

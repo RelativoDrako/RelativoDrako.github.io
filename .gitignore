@@ -1,0 +1,11 @@
+output/
+logs/
+*.zip
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.png
+*.jpg
+*.jpeg
+*.webp

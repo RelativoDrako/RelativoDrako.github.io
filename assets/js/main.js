@@ -1,0 +1,1 @@
+// Minimal script kept intentionally small for a stable public surface.
