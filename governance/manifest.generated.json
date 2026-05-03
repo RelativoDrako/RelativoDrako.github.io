@@ -1,0 +1,21 @@
+{
+    "repo_name":  "RelativoDrako.github.io",
+    "repo_kind":  "pages",
+    "required_checks":  [
+                            "pages-html-structure-check",
+                            "pages-links-check",
+                            "pages-asset-reference-check",
+                            "pages-build-deploy"
+                        ],
+    "critical_paths":  [
+                           "index.html",
+                           "assets/css",
+                           "assets/js",
+                           "assets/img",
+                           ".github/workflows"
+                       ],
+    "public_surface_paths":  [
+                                 "index.html",
+                                 "assets"
+                             ]
+}
