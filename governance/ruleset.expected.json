@@ -1,0 +1,15 @@
+{
+    "ruleset_name":  "main-governance",
+    "target_branch":  "main",
+    "default_branch":  "main",
+    "required_checks":  [
+                            "pages-html-structure-check",
+                            "pages-links-check",
+                            "pages-asset-reference-check",
+                            "pages-build-deploy"
+                        ],
+    "approvals_required":  1,
+    "require_codeowners_review":  true,
+    "restrict_deletions":  true,
+    "block_force_pushes":  true
+}

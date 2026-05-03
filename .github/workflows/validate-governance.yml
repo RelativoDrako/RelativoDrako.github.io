@@ -1,0 +1,47 @@
+# GENERATED FILE - do not edit manually
+name: Governance Validation
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  pages-html-structure-check:
+    name: pages-html-structure-check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run pages-html-structure-check
+        shell: pwsh
+        run: ./governance/templates/validators/html-structure-check.ps1 -RepoRoot ${{ github.workspace }} -RequiredHtmlFilesJson '["index.html"]'
+  pages-links-check:
+    name: pages-links-check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run pages-links-check
+        shell: pwsh
+        run: ./governance/templates/validators/links-check.ps1 -RepoRoot ${{ github.workspace }} -TargetFilesJson '["index.html"]'
+  pages-asset-reference-check:
+    name: pages-asset-reference-check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run pages-asset-reference-check
+        shell: pwsh
+        run: ./governance/templates/validators/image-reference-check.ps1 -RepoRoot ${{ github.workspace }} -TargetFilesJson '["index.html"]'
+  pages-build-deploy:
+    name: pages-build-deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run pages-build-deploy
+        shell: pwsh
+        run: ./governance/templates/validators/path-exists-check.ps1 -RepoRoot ${{ github.workspace }} -ExpectedPathsJson '["index.html","assets/css","assets/js","assets/img"]'
