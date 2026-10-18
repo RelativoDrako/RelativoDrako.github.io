@@ -1,4 +1,4 @@
-﻿# Daniel Franco Fajardo â€” Professional Landing Page
+﻿# Daniel Franco Fajardo — Professional Landing Page
 
 [![pages-build-deployment](https://github.com/RelativoDrako/RelativoDrako.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/RelativoDrako/RelativoDrako.github.io/actions/workflows/pages/pages-build-deployment)
 [![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-Live_Site-111827?logo=githubpages&logoColor=white)](https://relativodrako.github.io/)
@@ -8,7 +8,7 @@
 Professional landing page for **Daniel Franco Fajardo**, focused on systems architecture, critical and intelligent infrastructure, resilient operations, and controlled public proof.
 
 <p align="center">
-  <img src="./assets/img/hero_flagship_canonical.svg" alt="Daniel Franco Fajardo â€” Principal Systems Architect, Critical and Intelligent Infrastructure" width="100%" />
+  <img src="./assets/img/hero_flagship_canonical.svg" alt="Daniel Franco Fajardo — Principal Systems Architect, Critical and Intelligent Infrastructure" width="100%" />
 </p>
 
 ## Purpose
@@ -25,7 +25,7 @@ The site provides a concise reading surface for:
 
 ## Positioning
 
-**Principal Systems Architect â€” Critical & Intelligent Infrastructure**
+**Principal Systems Architect — Critical & Intelligent Infrastructure**
 
 I design and govern systems that must remain reliable under real-world constraints across software, automation, edge infrastructure, data acquisition, and applied intelligence.
 
@@ -49,6 +49,11 @@ The methodological layer frames infrastructure, control, acquisition, evaluation
 | [GitHub Profile](https://github.com/RelativoDrako) | Portfolio index | Curated professional identity, selected evidence, links, and public proof navigation. |
 
 ## Contact
+
+- Schedule a 30-minute meeting: [Calendly](https://calendly.com/relativomec/30min)
+- Project enquiries and CV requests: [Tally](https://tally.so/r/xXJQzG)
+
+The current site offers the CV on request rather than as a public PDF download. Previous Git history is preserved.
 
 - GitHub: [github.com/RelativoDrako](https://github.com/RelativoDrako)
 - LinkedIn: [linkedin.com/in/daniel-franco-b27572a8](https://linkedin.com/in/daniel-franco-b27572a8)
