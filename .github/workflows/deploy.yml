@@ -8,7 +8,7 @@ on:
       mode:
         description: "Deploy mode"
         required: true
-        default: "CleanHistoryPublish"
+        default: "StandardPublish"
         type: choice
         options:
           - StandardPublish
@@ -74,8 +74,8 @@ jobs:
 
       - name: Run controlled deploy
         run: |
-          $mode = "${{ inputs.mode }}"
-          $branch = "${{ inputs.branch }}"
+          $mode = "${{ inputs.mode || 'StandardPublish' }}"
+          $branch = "${{ inputs.branch || github.ref_name }}"
           $remoteUrl = "https://github.com/${{ github.repository }}.git"
 
           Write-Host "Mode: $mode"

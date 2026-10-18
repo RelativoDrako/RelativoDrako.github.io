@@ -2,7 +2,7 @@
 
 [![pages-build-deployment](https://github.com/RelativoDrako/RelativoDrako.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/RelativoDrako/RelativoDrako.github.io/actions/workflows/pages/pages-build-deployment)
 [![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-Live_Site-111827?logo=githubpages&logoColor=white)](https://relativodrako.github.io/)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Professional_Profile-0A66C2?logo=linkedin&logoColor=white)](https://linkedin.com/in/daniel-franco-b27572a8)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Professional_Profile-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/daniel-franco-fajardo-b27572a8)
 [![GitHub Profile](https://img.shields.io/badge/GitHub-RelativoDrako-181717?logo=github&logoColor=white)](https://github.com/RelativoDrako)
 
 Professional landing page for **Daniel Franco Fajardo**, focused on systems architecture, critical and intelligent infrastructure, resilient operations, and controlled public proof.
@@ -43,10 +43,13 @@ The methodological layer frames infrastructure, control, acquisition, evaluation
 
 | Project | Role | Public signal |
 |---|---|---|
-| [Probabilistic Seismic Risk Prototype](https://github.com/RelativoDrako/probabilistic-seismic-risk-prototype) | Flagship technical proof | Local-first probabilistic workflow, SQLite-backed authority, bounded interpretation, and traceable publication artifacts. |
-| [inventory-stream7-rescue](https://github.com/RelativoDrako/inventory-stream7-rescue) | Operational tooling proof | Cross-platform rescue, inventory, diagnostics, and evidence-driven reporting for constrained systems. |
-| [EdgeResilienceLab](https://github.com/RelativoDrako/edge-resilience-lab) | Publishable work in progress | Governed AI and resilient edge/OT architecture direction with human oversight, auditability, and local-first framing. |
-| [GitHub Profile](https://github.com/RelativoDrako) | Portfolio index | Curated professional identity, selected evidence, links, and public proof navigation. |
+| [Engineering Portfolio](https://github.com/RelativoDrako/engineering-portfolio) | Portfolio index | Evidence-linked review of four bounded public demonstrations. |
+| [Architecture Decision Workbench](https://github.com/RelativoDrako/architecture-decision-workbench) | Architecture decisions | Requirements, alternatives, trade-offs and verification mapping in a synthetic scenario. |
+| [Industrial Resilience OT Lab](https://github.com/RelativoDrako/industrial-resilience-ot-lab) | Resilient operations | Synthetic fault handling, controlled degradation, recovery and deterministic replay. |
+| [Governed AI Assurance](https://github.com/RelativoDrako/governed-ai-assurance) | Applied AI | Evidence grounding, citation checks, abstention and human review in a bounded corpus. |
+| [Governed Data & Analytics](https://github.com/RelativoDrako/governed-data-analytics) | Data governance | Data contracts, quarantine, quality, lineage and trusted outputs from synthetic data. |
+
+These demonstrations are separate from employment history and client deliveries.
 
 ## Contact
 
@@ -56,7 +59,7 @@ The methodological layer frames infrastructure, control, acquisition, evaluation
 The current site offers the CV on request rather than as a public PDF download. Previous Git history is preserved.
 
 - GitHub: [github.com/RelativoDrako](https://github.com/RelativoDrako)
-- LinkedIn: [linkedin.com/in/daniel-franco-b27572a8](https://linkedin.com/in/daniel-franco-b27572a8)
+- LinkedIn: [linkedin.com/in/daniel-franco-fajardo-b27572a8](https://www.linkedin.com/in/daniel-franco-fajardo-b27572a8)
 - Email: [relativomec@gmail.com](mailto:relativomec@gmail.com)
 
 ## Boundary
